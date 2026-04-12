@@ -197,6 +197,10 @@
 
 /* ---------- Bottom metadata row ---------- */
 
+/* Outer slot only; text/layout internals live in
+   components/card/BottomRow/BottomRow.css via @scope (.card__bottom).
+   Children use `position: absolute` with inset percentages that resolve
+   against the `.card` artboard, so the wrapper itself is transparent. */
 .card__bottom {
   display: contents;
 }
@@ -206,58 +210,9 @@
   inset: 94.04% 86.56% 3.52% 11.19%;
 }
 
-.card__copyright {
-  @apply absolute;
-  color: #000;
-  font-family: var(--font-gill-sans);
-  font-size: 12.7px;
-  font-style: normal;
-  inset-block-end: 0.59%;
-  inset-block-start: 97.85%;
-  inset-inline-end: 29.2%;
-  inset-inline-start: 29.33%;
-  line-height: 13px;
-}
-
-.card__illustrator {
-  @apply absolute;
-  color: #000;
-  font-family: var(--font-gill-sans);
-  font-size: 17px;
-  font-style: normal;
-  inset: 91.31% 77.49% 6.74% 6.55%;
-  letter-spacing: -0.85px;
-  line-height: normal;
-}
-
 .card__rarity {
   @apply absolute;
   inset: 94.63% 73.67% 3.71% 24.01%;
-}
-
-.card__number {
-  @apply absolute whitespace-nowrap;
-  color: #000;
-  font-family: var(--font-gill-sans);
-  font-size: 19px;
-  font-style: normal;
-  inset: 94.53% 79.26% 3.22% 14.32%;
-  line-height: normal;
-}
-
-.card__flavor {
-  @apply absolute text-right;
-  color: #434345;
-  font-family: var(--font-gill-sans);
-  font-size: 19px;
-  font-style: normal;
-  inset: 89.84% 6.96% 3.42% 35.06%;
-  line-height: 0;
-}
-
-.card__flavorLine {
-  line-height: normal;
-  margin-block-end: 0;
 }
 
 .card__setMark {

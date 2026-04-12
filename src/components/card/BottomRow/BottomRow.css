@@ -1,0 +1,61 @@
+@reference "../../../index.css";
+
+/* ============================================================
+   BottomRow — regulation mark / copyright / illustrator /
+   rarity / card number / flavor text / set mark.
+   The outer `.card__bottom` positioning lives in BasicCard.css;
+   every child is absolutely positioned via inset percentages
+   that resolve against the 733×1024 `.card` artboard (the
+   wrapper uses `display: contents`).
+   ============================================================ */
+
+@scope (.card__bottom) {
+  .card__copyright {
+    @apply absolute;
+    color: #000;
+    font-family: var(--font-gill-sans);
+    font-size: 12.7px;
+    font-style: normal;
+    inset-block-end: 0.59%;
+    inset-block-start: 97.85%;
+    inset-inline-end: 29.2%;
+    inset-inline-start: 29.33%;
+    line-height: 13px;
+  }
+
+  .card__illustrator {
+    @apply absolute;
+    color: #000;
+    font-family: var(--font-gill-sans);
+    font-size: 17px;
+    font-style: normal;
+    inset: 91.31% 77.49% 6.74% 6.55%;
+    letter-spacing: -0.85px;
+    line-height: normal;
+  }
+
+  .card__number {
+    @apply absolute whitespace-nowrap;
+    color: #000;
+    font-family: var(--font-gill-sans);
+    font-size: 19px;
+    font-style: normal;
+    inset: 94.53% 79.26% 3.22% 14.32%;
+    line-height: normal;
+  }
+
+  .card__flavor {
+    @apply absolute text-right;
+    color: #434345;
+    font-family: var(--font-gill-sans);
+    font-size: 19px;
+    font-style: normal;
+    inset: 89.84% 6.96% 3.42% 35.06%;
+    line-height: 0;
+  }
+
+  .card__flavorLine {
+    line-height: normal;
+    margin-block-end: 0;
+  }
+}

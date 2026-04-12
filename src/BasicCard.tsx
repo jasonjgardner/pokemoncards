@@ -5,10 +5,8 @@ import imgPortraitImage from "./assets/imgPortraitImage.png";
 import "./BasicCard.css";
 import { Attack } from "./components/card/Attack/Attack";
 import { BattleBar } from "./components/card/BattleBar/BattleBar";
+import { BottomRow } from "./components/card/BottomRow/BottomRow";
 import { NameHeader } from "./components/card/NameHeader/NameHeader";
-import { RarityMark } from "./components/card/RarityMark/RarityMark";
-import { RegulationMark } from "./components/card/RegulationMark/RegulationMark";
-import { SetMark } from "./components/card/SetMark/SetMark";
 import { SpeciesStrip } from "./components/card/SpeciesStrip/SpeciesStrip";
 import { StagePill } from "./components/card/StagePill/StagePill";
 
@@ -39,24 +37,20 @@ export default function BasicCard({ className, attackFrame = null, portrait = nu
       </div>
 
       {/* Bottom metadata row (copyright, illustrator, rarity, number, flavor, set mark) */}
-      <div className={"card__bottom"} data-name="Bottom">
-        <RegulationMark mark="F" />
-
-        <p className={"card__copyright"}>©2022 Pokémon / Nintendo / Creatures / GAME FREAK </p>
-        <p className={"card__illustrator"}>Illus. Mizue</p>
-
-        <RarityMark rarity="common" fill="black" />
-
-        <p className={"card__number"}>137/195</p>
-
-        <div className={"card__flavor"}>
-          <p className={"card__flavorLine"}>it draws symbols with the fluid that oozes from</p>
-          <p className={"card__flavorLine"}>the tip of its tail. Depending on the symbol,</p>
-          <p className={"card__flavorLine"}>Smeargle fanatics will pay big money for them</p>
-        </div>
-
-        <SetMark set="silver-tempest" />
-      </div>
+      <BottomRow
+        regulationMark="F"
+        copyright="©2022 Pokémon / Nintendo / Creatures / GAME FREAK "
+        illustrator="Illus. Mizue"
+        rarityShape="common"
+        rarityFill="black"
+        cardNumber="137/195"
+        flavor={[
+          "it draws symbols with the fluid that oozes from",
+          "the tip of its tail. Depending on the symbol,",
+          "Smeargle fanatics will pay big money for them",
+        ]}
+        setMark="silver-tempest"
+      />
 
       {/* Battle bar: weakness / resistance / retreat cost */}
       <BattleBar
