@@ -1,6 +1,9 @@
 @reference "../../../index.css";
 
-/* `.card__stage` slot positioning lives in BasicCard.css. */
+/* `.card__stage` slot positioning lives in BasicCard.css. Stage 1 / Stage 2
+   decorations (ribbon, wordmark, numeral, rectangle body, portrait frame,
+   evolves-from text) extend beyond the small pill's bounding box. They are
+   positioned absolutely relative to the pill's top-left. */
 
 @scope (.card__stage) {
   .card__stageShadow {
@@ -21,30 +24,103 @@
     transform: translate(-50%, -50%);
   }
 
-  .card__stageLabel {
-    color: #545454;
-    font-family: var(--font-gill-sans);
-    font-size: 1.1rem;
-    font-weight: 700;
-    inset-block-start: 50%;
-    inset-inline-start: 50%;
-    position: absolute;
-    text-transform: uppercase;
-    transform: translate(-50%, -50%);
+  /* ============================================================
+     Stage 1 / Stage 2 decorations.
+     Every asset sits inside a positioned wrapper `<div>`; the
+     inner `<img>` always stretches to 100% of its wrapper, so
+     the SVG's missing intrinsic size is irrelevant.
+     ============================================================ */
+
+  .card__stageWord,
+  .card__stageNumber,
+  .card__stageRectangle,
+  .card__stageRibbon,
+  .card__stageEvolvesFromFrame {
+    @apply absolute pointer-events-none;
   }
 
+  .card__stageWord > img,
+  .card__stageNumber > img,
+  .card__stageRectangle > img,
+  .card__stageRibbon > img,
+  .card__stageEvolvesFromFrame > img {
+    @apply block;
+    block-size: 100%;
+    inline-size: 100%;
+  }
+
+  /* "STAGE" wordmark — inside the pill, left half */
+  .card__stageWord {
+    inset-block-start: 10px;
+    inset-inline-start: 7px;
+    block-size: 11px;
+    inline-size: 70px;
+  }
+
+  /* Numeral ("1" / "2") — inside the pill, right side */
+  .card__stageNumber {
+    inset-block-start: 5px;
+    inset-inline-start: 76px;
+  }
+
+  .card__stageNumber[data-number="1"] {
+    block-size: 22px;
+    inline-size: 18px;
+  }
+
+  .card__stageNumber[data-number="2"] {
+    inset-block-start: 6px;
+    block-size: 19px;
+    inline-size: 22px;
+  }
+
+  /* Horizontal metallic bar extending from the pill to the ribbon hook. */
+  .card__stageRectangle {
+    inset-block-start: 53px;
+    inset-inline-start: 91px;
+    block-size: 27px;
+    inline-size: 311.5px;
+  }
+
+  /* Curled hook at the right end of the ribbon. */
+  .card__stageRibbon {
+    inset-block-start: -13px;
+    inset-inline-start: 387px;
+    block-size: 71px;
+    inline-size: 135.5px;
+  }
+
+  /* "Evolves from Pokemon" italic text on the ribbon. */
   .card__stageEvolvesFrom {
+    @apply absolute whitespace-nowrap;
     color: #000;
     font-family: var(--font-gill-sans);
-    font-size: 1.1rem;
+    font-size: 19px;
     font-style: italic;
     font-weight: 600;
+    letter-spacing: -0.57px;
+    inset-block-start: 55px;
+    inset-inline-start: 101px;
   }
 
+  /* Framed portrait of the previous-stage Pokémon, below the pill. */
   .card__stageEvolvesFromPortrait {
-    aspect-ratio: 1;
-    inline-size: 4rem;
-    overflow: hidden;
-    position: relative;
+    @apply absolute;
+    block-size: 80px;
+    inline-size: 80px;
+    inset-block-start: 36px;
+    inset-inline-start: 11px;
+  }
+
+  .card__stageEvolvesFromFrame {
+    inset: -6.25% -8.75% -8.75% -6.25%;
+  }
+
+  .card__stageEvolvesFromImage {
+    @apply absolute block object-cover;
+    inset-block-start: 7px;
+    inset-inline-start: 15px;
+    block-size: 65px;
+    inline-size: 50px;
   }
 }

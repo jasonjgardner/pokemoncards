@@ -1,6 +1,14 @@
 import svgPaths from "../../../../svg-2xxt8uep3y";
 import type { StageName } from "../types";
 import { StageLetter } from "./StageLetter";
+import stageRibbon1 from "../../../assets/stage/stage-ribbon-1.svg";
+import stageRibbon2 from "../../../assets/stage/stage-ribbon-2.svg";
+import stageRectangle from "../../../assets/stage/stage-rectangle.svg";
+import stagePortraitFrame from "../../../assets/stage/stage-portrait-frame.svg";
+import stageWord from "../../../assets/stage/stage-word.svg";
+import stageNumber1 from "../../../assets/stage/stage-number-1.svg";
+import stageNumber2 from "../../../assets/stage/stage-number-2.svg";
+import stagePlaceholder from "../../../assets/stage/stage-placeholder.png";
 import "./StagePill.css";
 
 export interface IStagePillProps {
@@ -20,14 +28,18 @@ const BASIC_LETTERS = [
 
 /**
  * Stage pill — metallic "BASIC" / "STAGE 1" / "STAGE 2" indicator above the
- * Pokémon name. Stages 1/2 include an "Evolves from X" note + small portrait
- * of the previous-stage Pokémon.
+ * Pokémon name. For Stage 1 and Stage 2 the pill carries an "Evolves from X"
+ * ribbon (horizontal bar + curled hook end) extending to the right and a
+ * framed thumbnail of the previous-stage Pokémon below.
  *
- * Filter/gradient IDs are namespaced with `_stage` suffixes (vs. the original
- * inline `_1_543`) so multiple cards can be rendered on one page without
- * SVG `id` collisions.
+ * Decorative assets (ribbon, frame, "STAGE" wordmark, numerals, portrait
+ * placeholder) are SVGs exported from the Figma library at
+ * `src/assets/stage/`. Each asset is wrapped in a sized `<div>` so CSS
+ * insets govern positioning — the SVGs themselves use `width="100%"
+ * height="100%"` and have no intrinsic pixel size.
  */
 export function StagePill({ className, stage = "basic", evolvesFrom, evolvesFromPortraitSrc }: IStagePillProps) {
+  const isEvolution = stage === "stage-1" || stage === "stage-2";
   return (
     <div className={className ? `card__stage ${className}` : "card__stage"} data-stage={stage} data-name="Stage">
       <div className="card__stageShadow">
@@ -57,6 +69,7 @@ export function StagePill({ className, stage = "basic", evolvesFrom, evolvesFrom
           </defs>
         </svg>
       </div>
+
       {stage === "basic" && (
         <div className="card__stageLetters">
           {BASIC_LETTERS.map((letter, i) => (
@@ -64,19 +77,32 @@ export function StagePill({ className, stage = "basic", evolvesFrom, evolvesFrom
           ))}
         </div>
       )}
-      {stage !== "basic" && (
-        <p className="card__stageLabel">
-          {stage === "stage-1" ? "STAGE 1" : "STAGE 2"}
-        </p>
-      )}
-      {stage !== "basic" && evolvesFrom && (
+
+      {isEvolution && (
         <>
-          <p className="card__stageEvolvesFrom">Evolves from {evolvesFrom}</p>
-          {evolvesFromPortraitSrc && (
-            <div className="card__stageEvolvesFromPortrait">
-              <img alt="" src={evolvesFromPortraitSrc} />
+          <div className="card__stageWord">
+            <img alt="" src={stageWord} />
+          </div>
+          <div className="card__stageNumber" data-number={stage === "stage-1" ? "1" : "2"}>
+            <img alt="" src={stage === "stage-1" ? stageNumber1 : stageNumber2} />
+          </div>
+          <div className="card__stageRectangle">
+            <img alt="" src={stageRectangle} />
+          </div>
+          <div className="card__stageRibbon">
+            <img alt="" src={stage === "stage-1" ? stageRibbon1 : stageRibbon2} />
+          </div>
+          <p className="card__stageEvolvesFrom">Evolves from {evolvesFrom ?? "Pokemon"}</p>
+          <div className="card__stageEvolvesFromPortrait">
+            <div className="card__stageEvolvesFromFrame">
+              <img alt="" src={stagePortraitFrame} />
             </div>
-          )}
+            <img
+              alt=""
+              className="card__stageEvolvesFromImage"
+              src={evolvesFromPortraitSrc ?? stagePlaceholder}
+            />
+          </div>
         </>
       )}
     </div>
