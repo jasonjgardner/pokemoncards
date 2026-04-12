@@ -7,6 +7,7 @@ import type { TypeName } from "./components/card/types";
 import { HpBadge } from "./components/card/HpBadge/HpBadge";
 import { RarityMark } from "./components/card/RarityMark/RarityMark";
 import { RegulationMark } from "./components/card/RegulationMark/RegulationMark";
+import { SetMark } from "./components/card/SetMark/SetMark";
 import { TypeBadge } from "./components/card/TypeBadge/TypeBadge";
 
 interface IAttackEnergyProps {
@@ -89,16 +90,7 @@ export default function BasicCard({ className, attackFrame = null, portrait = nu
           <p className={"card__flavorLine"}>Smeargle fanatics will pay big money for them</p>
         </div>
 
-        <div className={"card__setMark"} data-name="Silver Tempest Mark">
-          <div className={"card__setMarkInner"}>
-            <svg className={"card__svgFill"} fill="none" preserveAspectRatio="none" viewBox="0 0 29 29">
-              <g>
-                <path d={svgPaths.p529a1c0} fill="black" stroke="white" strokeMiterlimit="10" strokeWidth="2" />
-                <path d={svgPaths.p18614080} fill="white" />
-              </g>
-            </svg>
-          </div>
-        </div>
+        <SetMark set="silver-tempest" />
       </div>
 
       {/* Battle bar: weakness / resistance / retreat cost */}

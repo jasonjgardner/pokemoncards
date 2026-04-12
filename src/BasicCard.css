@@ -479,11 +479,6 @@
   inset: 93.65% 90.04% 3.91% 6.55%;
 }
 
-.card__setMarkInner {
-  @apply absolute;
-  inset: -8%;
-}
-
 /* ============================================================
    Type — badge size variants (badge internals live in TypeBadge.css)
    ============================================================ */

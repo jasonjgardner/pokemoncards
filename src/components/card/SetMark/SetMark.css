@@ -1,0 +1,14 @@
+@reference "../../../index.css";
+
+@scope (.card__setMark) {
+  :scope {
+    position: relative;
+    block-size: 100%;
+    inline-size: 100%;
+  }
+
+  .card__setMarkInner {
+    @apply absolute;
+    inset: -8%;
+  }
+}
