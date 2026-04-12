@@ -1,12 +1,9 @@
 @reference "../../../index.css";
 
-@scope (.card__hpBadge) {
-  :scope {
-    position: relative;
-    block-size: 100%;
-    inline-size: 100%;
-  }
+/* `.card__hpBadge` slot positioning lives in BasicCard.css. This file
+   owns only the internal chrome (base circle + symbol). */
 
+@scope (.card__hpBadge) {
   .card__hpBadgeBase {
     @apply absolute;
     inset: -8.16%;

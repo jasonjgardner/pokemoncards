@@ -1,9 +1,10 @@
 @reference "../../../index.css";
 
+/* `.card__rarity` slot positioning lives in BasicCard.css. This file
+   is a no-op placeholder — the rarity shape is drawn directly in the
+   SVG, no internal children need styling. Left in place so the TSX's
+   `import "./RarityMark.css"` still resolves. */
+
 @scope (.card__rarity) {
-  :scope {
-    position: relative;
-    block-size: 100%;
-    inline-size: 100%;
-  }
+  /* intentionally empty */
 }

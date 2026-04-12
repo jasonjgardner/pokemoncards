@@ -1,12 +1,8 @@
 @reference "../../../index.css";
 
-@scope (.card__regulationMark) {
-  :scope {
-    position: relative;
-    block-size: 100%;
-    inline-size: 100%;
-  }
+/* `.card__regulationMark` slot positioning lives in BasicCard.css. */
 
+@scope (.card__regulationMark) {
   .card__regulationMarkBase {
     @apply absolute;
     inset: -2% -3.03%;

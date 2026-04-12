@@ -1,12 +1,8 @@
 @reference "../../../index.css";
 
-@scope (.card__stage) {
-  :scope {
-    block-size: 100%;
-    inline-size: 100%;
-    position: relative;
-  }
+/* `.card__stage` slot positioning lives in BasicCard.css. */
 
+@scope (.card__stage) {
   .card__stageShadow {
     @apply absolute;
     inset-block-end: -9.09%;
