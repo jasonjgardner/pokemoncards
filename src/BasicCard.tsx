@@ -5,6 +5,7 @@ import imgPortraitImage from "./assets/imgPortraitImage.png";
 import "./BasicCard.css";
 import type { TypeName } from "./components/card/types";
 import { HpBadge } from "./components/card/HpBadge/HpBadge";
+import { RegulationMark } from "./components/card/RegulationMark/RegulationMark";
 import { TypeBadge } from "./components/card/TypeBadge/TypeBadge";
 
 interface IAttackEnergyProps {
@@ -72,18 +73,7 @@ export default function BasicCard({ className, attackFrame = null, portrait = nu
 
       {/* Bottom metadata row (copyright, illustrator, rarity, number, flavor, set mark) */}
       <div className={"card__bottom"} data-name="Bottom">
-        <div className={"card__regulationMark"} data-name="Regulation Mark">
-          <div className={"card__regulationMarkBase"}>
-            <svg className={"card__svgFill"} fill="none" preserveAspectRatio="none" viewBox="0 0 17.5 26">
-              <path d={svgPaths.p31d5ee00} fill="white" stroke="black" />
-            </svg>
-          </div>
-          <div className={"card__regulationMarkLetter"}>
-            <svg className={"card__svgAbsFill"} fill="none" preserveAspectRatio="none" viewBox="0 0 7 14">
-              <path d="M7 0V2H3V6H7V8H3V14H0V0H7Z" fill="black" />
-            </svg>
-          </div>
-        </div>
+        <RegulationMark mark="F" />
 
         <p className={"card__copyright"}>©2022 Pokémon / Nintendo / Creatures / GAME FREAK </p>
         <p className={"card__illustrator"}>Illus. Mizue</p>

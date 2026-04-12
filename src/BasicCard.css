@@ -420,16 +420,6 @@
   inset: 94.04% 86.56% 3.52% 11.19%;
 }
 
-.card__regulationMarkBase {
-  @apply absolute;
-  inset: -2% -3.03%;
-}
-
-.card__regulationMarkLetter {
-  @apply absolute;
-  inset: 24% 27.27% 20% 30.3%;
-}
-
 .card__copyright {
   @apply absolute;
   color: #000;
