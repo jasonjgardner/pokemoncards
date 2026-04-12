@@ -1,0 +1,47 @@
+@reference "../../../index.css";
+
+/* ============================================================
+   NameHeader — HP label/value + type badge group.
+   The outer `.card__hpType` positioning (inset / absolute) lives
+   in BasicCard.css as the parent slot on the 733×1024 artboard.
+   The `.card__name` rule also stays in BasicCard.css because the
+   <p className="card__name"> is rendered as a sibling of the
+   `.card__hpType` group and is positioned relative to `.card`.
+   ============================================================ */
+
+@scope (.card__hpType) {
+  :scope {
+    @apply absolute overflow-clip;
+  }
+
+  .card__hpGroup {
+    display: contents;
+  }
+
+  .card__hpText {
+    @apply absolute flex flex-col justify-center text-right;
+    block-size: 40px;
+    color: #000;
+    font-family: var(--font-gill-sans);
+    font-size: 0;
+    font-style: normal;
+    inline-size: 103px;
+    inset-block-start: 35px;
+    inset-inline-start: 94px;
+    line-height: 0;
+    transform: translate(-100%, -50%);
+  }
+
+  .card__hpLabel {
+    font-family: var(--font-trebuchet);
+    font-size: 15px;
+    line-height: normal;
+  }
+
+  .card__hpValue {
+    font-family: var(--font-trebuchet);
+    font-size: 50px;
+    letter-spacing: -5px;
+    line-height: normal;
+  }
+}

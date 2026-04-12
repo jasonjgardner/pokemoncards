@@ -171,40 +171,11 @@
 
 /* ---------- HP & type badge (top-right) ---------- */
 
+/* Outer positioning lives on the card; internals are scoped in
+   components/card/NameHeader/NameHeader.css via @scope (.card__hpType). */
 .card__hpType {
-  @apply absolute overflow-clip;
+  @apply absolute;
   inset: 3.03% 4.23% 90.53% 73.26%;
-}
-
-.card__hpGroup {
-  display: contents;
-}
-
-.card__hpText {
-  @apply absolute flex flex-col justify-center text-right;
-  block-size: 40px;
-  color: #000;
-  font-family: var(--font-gill-sans);
-  font-size: 0;
-  font-style: normal;
-  inline-size: 103px;
-  inset-block-start: 35px;
-  inset-inline-start: 94px;
-  line-height: 0;
-  transform: translate(-100%, -50%);
-}
-
-.card__hpLabel {
-  font-family: var(--font-trebuchet);
-  font-size: 15px;
-  line-height: normal;
-}
-
-.card__hpValue {
-  font-family: var(--font-trebuchet);
-  font-size: 50px;
-  letter-spacing: -5px;
-  line-height: normal;
 }
 
 .card__hpBadge {

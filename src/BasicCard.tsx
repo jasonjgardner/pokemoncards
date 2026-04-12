@@ -4,7 +4,7 @@ import imgBg from "./assets/imgBg.png";
 import imgPortraitImage from "./assets/imgPortraitImage.png";
 import "./BasicCard.css";
 import { Attack } from "./components/card/Attack/Attack";
-import { HpBadge } from "./components/card/HpBadge/HpBadge";
+import { NameHeader } from "./components/card/NameHeader/NameHeader";
 import { RarityMark } from "./components/card/RarityMark/RarityMark";
 import { RegulationMark } from "./components/card/RegulationMark/RegulationMark";
 import { SetMark } from "./components/card/SetMark/SetMark";
@@ -392,21 +392,8 @@ export default function BasicCard({ className, attackFrame = null, portrait = nu
         </div>
       </div>
 
-      {/* HP + type badge (top-right) */}
-      <div className={"card__hpType"} data-name="HP / Type">
-        <div className={"card__hpGroup"} data-name="HP">
-          <div className={"card__hpText"}>
-            <p>
-              <span className={"card__hpLabel"}>HP</span>
-              <span className={"card__hpValue"}>70</span>
-            </p>
-          </div>
-        </div>
-        <HpBadge type="Normal" />
-      </div>
-
-      {/* Name */}
-      <p className={"card__name"}>Smeargle</p>
+      {/* Name + HP + type badge (top-right header row) */}
+      <NameHeader name="Smeargle" hp={70} type="Normal" />
 
       {/* Stage pill (BASIC) */}
       <StagePill stage="basic" />
