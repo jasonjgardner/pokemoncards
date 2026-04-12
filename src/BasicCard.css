@@ -1,0 +1,660 @@
+@reference "./index.css";
+
+:root {
+  --font-gill-sans: Gill Sans, "Gill Sans MT", Calibri, sans-serif;
+  --font-trebuchet: "futura-pt", Futura, Trebuchet, "Trebuchet MS", Arial, sans-serif;
+}
+
+/* ============================================================
+   Card — Pokémon Trading Card Builder (Basic)
+   Percentages mirror the Figma node (733 × 1024) so the layout
+   scales with any containing element that matches that ratio.
+   ============================================================ */
+
+.card {
+  @apply relative;
+  block-size: 1024px;
+  inline-size: 733px;
+}
+
+/* ---------- Outer yellow border ---------- */
+
+.card__border {
+  @apply absolute rounded-[35px];
+  background: #ffe165;
+  inset: 0;
+}
+
+/* ---------- Inner surface (rounded, clipped) ---------- */
+
+.card__surface {
+  @apply absolute overflow-clip rounded-[10px];
+  inset: 3.03% 4.23% 3.03% 4.09%;
+}
+
+.card__surfaceBase {
+  @apply absolute pointer-events-none rounded-[10px];
+  background: white;
+  inset: 0;
+}
+
+.card__surfaceBg {
+  @apply absolute;
+  block-size: 100.2%;
+  inline-size: 100%;
+  inset-block-start: -0.1%;
+  inset-inline-start: 0;
+}
+
+.card__surfaceBgImg {
+  @apply absolute block max-w-none object-cover pointer-events-none size-full;
+  inset: 0;
+}
+
+.card__surfaceOverlay {
+  @apply absolute;
+  background: #cdc8c4;
+  inset: 0;
+  mix-blend-mode: hard-light;
+}
+
+.card__surfaceHolo {
+  display: contents;
+}
+
+.card__surfaceHoloLayer {
+  @apply absolute mask-alpha mask-intersect mask-no-clip mask-no-repeat;
+  background-image: linear-gradient(
+    77.5389deg,
+    rgba(165, 255, 122, 0.4) 5.9097%,
+    rgba(255, 161, 160, 0.4) 28.859%,
+    rgba(188, 233, 236, 0.4) 51.147%,
+    rgba(245, 242, 174, 0.4) 72.134%,
+    rgba(255, 159, 159, 0.4) 95.452%
+  );
+  inset: 45.84% 0 0 0;
+  mask-position: 0 -113px;
+  mask-size: 672px 634px;
+}
+
+.card__surfaceInsetShadow {
+  @apply absolute pointer-events-none;
+  border-radius: inherit;
+  box-shadow: inset 0 0 0 2px rgba(0, 0, 0, 0.25);
+  inset: 0;
+}
+
+/* ---------- Portrait (artwork slot + frame) ---------- */
+
+.card__portraitSlot {
+  @apply absolute;
+  inset: 9.96% 8.05% 52.64% 7.78%;
+}
+
+.card__portraitSlotBg {
+  @apply absolute;
+  background: #d9d9d9;
+  inset: 0;
+}
+
+.card__portraitSlotImg {
+  @apply absolute block max-w-none object-cover pointer-events-none size-full;
+  inset: 0;
+}
+
+.card__portrait {
+  @apply absolute;
+  inset: 9.96% 8.05% 52.64% 8.05%;
+}
+
+.card__portraitFrame {
+  @apply absolute;
+  inset: 9.47% 7.37% 52.15% 7.09%;
+}
+
+.card__portraitFrameShadow {
+  @apply absolute;
+  inset-block-end: -1.02%;
+  inset-block-start: 0;
+  inset-inline-end: -0.64%;
+  inset-inline-start: 0;
+}
+
+.card__svgFill {
+  @apply block size-full;
+}
+
+.card__svgAbsFill {
+  @apply absolute block size-full;
+  inset: 0;
+}
+
+/* ---------- Species strip (NO. 235 / Painter Pokémon / HT / WT) ---------- */
+
+.card__speciesStrip {
+  @apply absolute;
+  inset: 47.66% 4.71% 49.61% 5.73%;
+}
+
+.card__speciesStripShadow {
+  @apply absolute;
+  inset-block-end: -14.29%;
+  inset-block-start: 0;
+  inset-inline-end: -0.61%;
+  inset-inline-start: 0;
+}
+
+.card__speciesStripText {
+  @apply absolute content-stretch flex gap-[11px] items-center justify-center overflow-clip whitespace-nowrap;
+  color: #434345;
+  font-style: normal;
+  inset: 28.57% 10.97% 17.86% 9.37%;
+  line-height: normal;
+}
+
+.card__speciesItem {
+  @apply relative shrink-0;
+  font-family: var(--font-gill-sans);
+  font-size: 15px;
+  line-height: normal;
+}
+
+.card__speciesItem--number {
+  font-family: var(--font-gill-sans);
+  font-size: 0;
+  line-height: 0;
+}
+
+.card__speciesItem--species {
+  letter-spacing: 0.45px;
+}
+
+/* ---------- HP & type badge (top-right) ---------- */
+
+.card__hpType {
+  @apply absolute overflow-clip;
+  inset: 3.03% 4.23% 90.53% 73.26%;
+}
+
+.card__hpGroup {
+  display: contents;
+}
+
+.card__hpText {
+  @apply absolute flex flex-col justify-center text-right;
+  block-size: 40px;
+  color: #000;
+  font-family: var(--font-gill-sans);
+  font-size: 0;
+  font-style: normal;
+  inline-size: 103px;
+  inset-block-start: 35px;
+  inset-inline-start: 94px;
+  line-height: 0;
+  transform: translate(-100%, -50%);
+}
+
+.card__hpLabel {
+  font-family: var(--font-trebuchet);
+  font-size: 15px;
+  line-height: normal;
+}
+
+.card__hpValue {
+  font-family: var(--font-trebuchet);
+  font-size: 50px;
+  letter-spacing: -5px;
+  line-height: normal;
+}
+
+.card__hpBadge {
+  @apply absolute;
+  block-size: 49px;
+  inline-size: 49px;
+  inset-block-start: 9px;
+  inset-inline-start: 102px;
+}
+
+.card__hpBadgeBase {
+  @apply absolute;
+  inset: -8.16%;
+}
+
+/* ---------- Name (e.g. "Smeargle") ---------- */
+
+.card__name {
+  @apply absolute;
+  color: #000;
+  font-family: var(--font-gill-sans);
+  font-size: 49px;
+  font-style: normal;
+  inset: 4% 30.7% 91.5% 19.51%;
+  line-height: normal;
+}
+
+/* ---------- Stage pill (e.g. "BASIC") ---------- */
+
+.card__stage {
+  @apply absolute;
+  inset: 4.3% 82.67% 92.48% 3%;
+}
+
+.card__stageShadow {
+  @apply absolute;
+  inset-block-end: -9.09%;
+  inset-block-start: -3.03%;
+  inset-inline-end: -2.86%;
+  inset-inline-start: -0.95%;
+}
+
+.card__stageLetters {
+  @apply absolute overflow-clip;
+  inset: 18.14% 5.69% 18.36% 4.27%;
+}
+
+.card__stageLetter {
+  @apply absolute;
+  transform: translate(-50%, -50%);
+}
+
+.card__stageLetterShadow {
+  @apply absolute;
+}
+
+/* ---------- Attack frame (slot for Pokémon's attacks) ---------- */
+
+.card__attackFrame {
+  @apply absolute content-stretch flex flex-col gap-[25px] items-center justify-center overflow-clip;
+  inset: 50.39% 4.5% 14.26% 4.37%;
+  padding-block: 50px 10px;
+  padding-inline: 25px;
+}
+
+/* ---------- Battle bar (weakness / resistance / retreat) ---------- */
+
+.card__battleBar {
+  display: contents;
+}
+
+.card__retreat {
+  display: contents;
+}
+
+.card__retreatBase {
+  display: contents;
+}
+
+.card__retreatShadowWrap {
+  @apply absolute;
+  inset: 85.74% 2.46% 11.04% 57.71%;
+}
+
+.card__retreatShadow {
+  @apply absolute;
+  inset: 0 -1.37% -12.12% 0;
+}
+
+.card__retreatBar {
+  @apply absolute;
+  inset: 85.74% 3.55% 11.04% 58.6%;
+}
+
+.card__retreatBarCapStart {
+  @apply absolute;
+  inset: 85.74% 37.52% 11.04% 57.71%;
+}
+
+.card__retreatBarCapEnd {
+  @apply absolute;
+  inset: 85.74% 2.46% 11.04% 93.86%;
+}
+
+.card__retreatLabel {
+  @apply absolute whitespace-nowrap;
+  color: #434345;
+  font-family: var(--font-gill-sans);
+  font-size: 14px;
+  font-style: normal;
+  inset: 86.52% 31.38% 11.91% 62.21%;
+  line-height: normal;
+}
+
+.card__weaknessBase {
+  @apply absolute;
+  inset: 85.74% 41.34% 11.04% 2.73%;
+}
+
+.card__weaknessBaseShadow {
+  @apply absolute;
+  inset-block-end: -12.12%;
+  inset-block-start: 0;
+  inset-inline-end: -0.98%;
+  inset-inline-start: 0;
+}
+
+.card__resistanceGroup {
+  display: contents;
+}
+
+.card__weaknessGroup {
+  display: contents;
+}
+
+.card__battleText {
+  @apply absolute whitespace-nowrap;
+  color: #434345;
+  font-style: normal;
+  line-height: normal;
+}
+
+.card__resistanceLabel {
+  font-family: var(--font-gill-sans);
+  font-size: 14px;
+  inset: 86.52% 59.89% 11.91% 31.11%;
+}
+
+.card__resistanceMinus {
+  font-family: var(--font-gill-sans);
+  font-size: 25px;
+  inset: 85.64% 51.98% 11.52% 46.79%;
+}
+
+.card__resistanceNum {
+  font-family: var(--font-gill-sans);
+  font-size: 30px;
+  inset: 85.64% 47.89% 10.94% 48.02%;
+}
+
+.card__weaknessLabel {
+  font-family: var(--font-gill-sans);
+  font-size: 14px;
+  inset: 86.52% 85.95% 11.91% 5.59%;
+}
+
+.card__weaknessMult {
+  font-family: var(--font-gill-sans);
+  font-size: 25px;
+  inset: 85.64% 77.9% 11.52% 20.33%;
+}
+
+.card__weaknessNum {
+  font-family: var(--font-gill-sans);
+  font-size: 30px;
+  inset: 85.64% 75.31% 10.94% 22.65%;
+}
+
+.card__retreatCost {
+  @apply absolute;
+  inset: 86.13% 17.29% 11.5% 72.31%;
+}
+
+.card__retreatCostType {
+  @apply absolute;
+  block-size: 23px;
+  inline-size: 23px;
+  inset-block-start: 50%;
+  transform: translateY(-50%);
+}
+
+.card__retreatCostType--first {
+  inset-inline-start: 0;
+}
+
+.card__retreatCostType--second {
+  inset-inline-start: 26.63px;
+}
+
+.card__resistanceType {
+  @apply absolute;
+  inset: 86.13% 54.43% 11.52% 42.29%;
+}
+
+.card__weaknessType {
+  @apply absolute;
+  inset: 86.13% 80.49% 11.52% 16.23%;
+}
+
+/* ---------- Bottom metadata row ---------- */
+
+.card__bottom {
+  display: contents;
+}
+
+.card__regulationMark {
+  @apply absolute;
+  inset: 94.04% 86.56% 3.52% 11.19%;
+}
+
+.card__regulationMarkBase {
+  @apply absolute;
+  inset: -2% -3.03%;
+}
+
+.card__regulationMarkLetter {
+  @apply absolute;
+  inset: 24% 27.27% 20% 30.3%;
+}
+
+.card__copyright {
+  @apply absolute;
+  color: #000;
+  font-family: var(--font-gill-sans);
+  font-size: 12.7px;
+  font-style: normal;
+  inset-block-end: 0.59%;
+  inset-block-start: 97.85%;
+  inset-inline-end: 29.2%;
+  inset-inline-start: 29.33%;
+  line-height: 13px;
+}
+
+.card__illustrator {
+  @apply absolute;
+  color: #000;
+  font-family: var(--font-gill-sans);
+  font-size: 17px;
+  font-style: normal;
+  inset: 91.31% 77.49% 6.74% 6.55%;
+  letter-spacing: -0.85px;
+  line-height: normal;
+}
+
+.card__rarity {
+  @apply absolute;
+  inset: 94.63% 73.67% 3.71% 24.01%;
+}
+
+.card__number {
+  @apply absolute whitespace-nowrap;
+  color: #000;
+  font-family: var(--font-gill-sans);
+  font-size: 19px;
+  font-style: normal;
+  inset: 94.53% 79.26% 3.22% 14.32%;
+  line-height: normal;
+}
+
+.card__flavor {
+  @apply absolute text-right;
+  color: #434345;
+  font-family: var(--font-gill-sans);
+  font-size: 19px;
+  font-style: normal;
+  inset: 89.84% 6.96% 3.42% 35.06%;
+  line-height: 0;
+}
+
+.card__flavorLine {
+  line-height: normal;
+  margin-block-end: 0;
+}
+
+.card__setMark {
+  @apply absolute;
+  inset: 93.65% 90.04% 3.91% 6.55%;
+}
+
+.card__setMarkInner {
+  @apply absolute;
+  inset: -8%;
+}
+
+/* ============================================================
+   Type — reusable energy-type badge
+   Variant styling is driven by `data-type` so the TSX stays lean.
+   ============================================================ */
+
+.type {
+  @apply relative;
+  block-size: 38px;
+  inline-size: 38px;
+}
+
+.type__ring {
+  @apply absolute;
+  inset: -3.95%;
+}
+
+.type__symbol {
+  @apply absolute;
+}
+
+.type[data-type="Normal"] .type__symbol    { inset: 10.53% 15.81%; }
+.type[data-type="Fire"] .type__symbol      { inset: 7.89% 10.53%; }
+.type[data-type="Grass"] .type__symbol     { inset: 7.89% 13.16% 10.53% 13.16%; }
+.type[data-type="Water"] .type__symbol     { inset: 15.79% 18.42% 17.09% 15.79%; }
+.type[data-type="Lightning"] .type__symbol { inset: 10.53% 21.05%; }
+.type[data-type="Fighting"] .type__symbol  { inset: 15.79% 18.42% 15.79% 21.05%; }
+.type[data-type="Psychic"] .type__symbol   { inset: 26.32% 28.95% 31.58% 28.95%; }
+.type[data-type="Metal"] .type__symbol     { inset: 18.42% 13.3% 15.79% 11.84%; }
+.type[data-type="Dragon"] .type__symbol    { inset: 15.79% 17.11% 15.79% 15.79%; }
+.type[data-type="Darkness"] .type__symbol  { inset: 18.43% 13.16% 20.57% 13.16%; }
+
+.type__symbolGrassShadow {
+  @apply absolute;
+  inset: -16.13% -17.86%;
+}
+
+.type__psychicExtra {
+  @apply absolute;
+  inset: 18.42% 7.89%;
+}
+
+/* Small (23 px) type variant used inside the battle bar */
+.type--small {
+  block-size: 23px;
+  inline-size: 23px;
+}
+
+/* Large (49 px) type variant used as the HP-adjacent badge */
+.type--large {
+  block-size: 49px;
+  inline-size: 49px;
+}
+
+.type--large .type__ring {
+  inset: -8.16%;
+}
+
+/* ============================================================
+   Attack energy — row of 1 or 2 type icons preceding an attack
+   ============================================================ */
+
+.attackEnergy {
+  @apply relative;
+  block-size: 40px;
+  inline-size: 172px;
+}
+
+.attackEnergy__slot {
+  @apply absolute;
+  block-size: 38px;
+  inline-size: 38px;
+  inset-block-end: 1px;
+}
+
+.attackEnergy[data-count="1"] .attackEnergy__slot:nth-child(1) {
+  inset-inline-start: 1px;
+}
+
+.attackEnergy[data-count="2"] .attackEnergy__slot:nth-child(1) {
+  inset-inline-start: calc(50% - 66px);
+  transform: translateX(-50%);
+}
+
+.attackEnergy[data-count="2"] .attackEnergy__slot:nth-child(2) {
+  inset-inline-start: calc(50% - 22px);
+  transform: translateX(-50%);
+}
+
+/* ============================================================
+   Attack — name + optional description + damage + energy
+   ============================================================ */
+
+.attack {
+  @apply relative shrink-0;
+  inline-size: 618px;
+}
+
+.attack--withDescription {
+  block-size: 131px;
+}
+
+.attack--basic {
+  block-size: 47px;
+}
+
+.attack__name {
+  @apply absolute text-center;
+  block-size: 40px;
+  color: #000;
+  font-family: var(--font-gill-sans);
+  font-size: 39px;
+  font-style: normal;
+  inline-size: 390px;
+  inset-block-start: 7px;
+  inset-inline-start: calc(50% + 20px);
+  line-height: normal;
+  transform: translateX(-50%);
+}
+
+.attack--basic .attack__name {
+  inline-size: 296px;
+  inset-inline-start: calc(50% + 19px);
+}
+
+.attack__description {
+  @apply absolute;
+  block-size: 82px;
+  color: #000;
+  font-family: var(--font-gill-sans);
+  font-size: 26px;
+  font-style: normal;
+  inline-size: 618px;
+  inset-block-start: 49px;
+  inset-inline-start: calc(50% - 309px);
+  line-height: 29px;
+}
+
+.attack__damage {
+  @apply absolute text-right;
+  block-size: 40px;
+  color: #000;
+  font-family: var(--font-gill-sans);
+  font-size: 39px;
+  font-style: normal;
+  inline-size: 82px;
+  inset-block-start: 7px;
+  inset-inline-start: calc(50% + 309px);
+  line-height: normal;
+  transform: translateX(-100%);
+}
+
+.attack__energy {
+  @apply absolute;
+  block-size: 40px;
+  inline-size: 172px;
+  inset-block-start: 0;
+  inset-inline-start: calc(50% - 223px);
+  transform: translateX(-50%);
+}
