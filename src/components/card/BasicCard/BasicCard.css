@@ -1,4 +1,4 @@
-@reference "./index.css";
+@reference "../../../index.css";
 
 :root {
   --font-gill-sans: Gill Sans, "Gill Sans MT", Calibri, sans-serif;

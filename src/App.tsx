@@ -1,5 +1,5 @@
 
-import BasicCard from "./BasicCard";
+import BasicCard from "./components/card/BasicCard/BasicCard";
 export function App() {
   return (
     <div className="size-full flex items-center justify-center bg-gray-900 p-8">
