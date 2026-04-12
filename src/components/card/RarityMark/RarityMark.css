@@ -1,0 +1,9 @@
+@reference "../../../index.css";
+
+@scope (.card__rarity) {
+  :scope {
+    position: relative;
+    block-size: 100%;
+    inline-size: 100%;
+  }
+}

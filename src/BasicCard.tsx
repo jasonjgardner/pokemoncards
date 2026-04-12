@@ -5,6 +5,7 @@ import imgPortraitImage from "./assets/imgPortraitImage.png";
 import "./BasicCard.css";
 import type { TypeName } from "./components/card/types";
 import { HpBadge } from "./components/card/HpBadge/HpBadge";
+import { RarityMark } from "./components/card/RarityMark/RarityMark";
 import { RegulationMark } from "./components/card/RegulationMark/RegulationMark";
 import { TypeBadge } from "./components/card/TypeBadge/TypeBadge";
 
@@ -78,11 +79,7 @@ export default function BasicCard({ className, attackFrame = null, portrait = nu
         <p className={"card__copyright"}>©2022 Pokémon / Nintendo / Creatures / GAME FREAK </p>
         <p className={"card__illustrator"}>Illus. Mizue</p>
 
-        <div className={"card__rarity"} data-name="Rarity">
-          <svg className={"card__svgAbsFill"} fill="none" preserveAspectRatio="none" viewBox="0 0 17 17">
-            <circle cx="8.5" cy="8.5" fill="black" r="8.5" />
-          </svg>
-        </div>
+        <RarityMark rarity="common" fill="black" />
 
         <p className={"card__number"}>137/195</p>
 
