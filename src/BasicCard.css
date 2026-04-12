@@ -91,17 +91,6 @@
   inset: 9.96% 8.05% 52.64% 7.78%;
 }
 
-.card__portraitSlotBg {
-  @apply absolute;
-  background: #d9d9d9;
-  inset: 0;
-}
-
-.card__portraitSlotImg {
-  @apply absolute block max-w-none object-cover pointer-events-none size-full;
-  inset: 0;
-}
-
 .card__portrait {
   @apply absolute;
   inset: 9.96% 8.05% 52.64% 8.05%;
@@ -110,14 +99,6 @@
 .card__portraitFrame {
   @apply absolute;
   inset: 9.47% 7.37% 52.15% 7.09%;
-}
-
-.card__portraitFrameShadow {
-  @apply absolute;
-  inset-block-end: -1.02%;
-  inset-block-start: 0;
-  inset-inline-end: -0.64%;
-  inset-inline-start: 0;
 }
 
 .card__svgFill {

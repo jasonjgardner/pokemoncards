@@ -1,0 +1,32 @@
+@reference "../../../index.css";
+
+/* ============================================================
+   PortraitFrame — artwork slot + metallic frame with drop-shadow.
+   The outer `.card__portraitSlot` and `.card__portraitFrame`
+   positioning lives in BasicCard.css (they are two overlapping
+   slots on the 733×1024 card artboard). These scopes handle
+   only the internal children.
+   ============================================================ */
+
+@scope (.card__portraitSlot) {
+  .card__portraitSlotBg {
+    @apply absolute;
+    background: #d9d9d9;
+    inset: 0;
+  }
+
+  .card__portraitSlotImg {
+    @apply absolute block max-w-none object-cover pointer-events-none size-full;
+    inset: 0;
+  }
+}
+
+@scope (.card__portraitFrame) {
+  .card__portraitFrameShadow {
+    @apply absolute;
+    inset-block-end: -1.02%;
+    inset-block-start: 0;
+    inset-inline-end: -0.64%;
+    inset-inline-start: 0;
+  }
+}
