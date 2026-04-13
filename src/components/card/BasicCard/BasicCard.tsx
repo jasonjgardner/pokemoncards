@@ -28,7 +28,7 @@ export function BasicCard({ className, data, portrait }: IBasicCardProps) {
   const d: ICardData = { ...SMEARGLE_DATA, ...data };
   return (
     <div className={className || "card"} data-name="Basic Card">
-      <CardSurface bgSrc={d.bgSrc} holoMaskSrc={d.holoMaskSrc} />
+      <CardSurface bgSrc={d.bgSrc} holoMaskSrc={d.holoMaskSrc} type={d.type} />
       <PortraitFrame>{portrait ?? <img alt="" src={d.portraitSrc} />}</PortraitFrame>
       <NameHeader name={d.name} hp={d.hp} type={d.type} />
       <StagePill stage={d.stage} evolvesFrom={d.evolvesFrom} evolvesFromPortraitSrc={d.evolvesFromPortraitSrc} />

@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { HolographicCard } from "./HolographicCard";
+import { CARROTS_DATA } from "../../card/carrots";
 
 const meta = {
   title: "HoverTilt/HolographicCard",
@@ -84,5 +85,18 @@ export const VideoPortrait: S = {
         src="https://cdn.jsdelivr.net/npm/big-buck-bunny-1080p@0.0.6/video.mp4"
       />
     ),
+  },
+};
+
+export const Carrots: S = {
+  args: {
+    data: CARROTS_DATA,
+    tiltFactor: 1.5,
+    scaleFactor: 1.1,
+    shadow: true,
+    blendMode: "luminosity",
+    glareIntensity: 4,
+    glareMaskMode: "luminance",
+    rainbowSaturation: 1.6,
   },
 };

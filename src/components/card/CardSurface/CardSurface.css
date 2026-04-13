@@ -35,7 +35,7 @@
 
   .card__surfaceOverlay {
     @apply absolute;
-    background: #cdc8c4;
+    background: var(--card-surface-tint, #cdc8c4);
     inset: 0;
     mix-blend-mode: hard-light;
   }

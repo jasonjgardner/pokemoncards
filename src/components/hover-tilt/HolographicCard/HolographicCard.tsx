@@ -1,6 +1,7 @@
 import "hover-tilt/web-component";
 import type { CSSProperties, ReactNode } from "react";
 import BasicCard from "../../card/BasicCard/BasicCard";
+import type { ICardData } from "../../card/types";
 import pokeballOuter from "./pokeball-outer.svg";
 import pokeballInner from "./pokeball-inner.svg";
 import "./HolographicCard.css";
@@ -53,6 +54,8 @@ export interface IHolographicCardProps {
   tileSize?: string;
   /** Portrait slot override forwarded to the underlying BasicCard (e.g. `<video>`). */
   portrait?: ReactNode;
+  /** Card data forwarded to the underlying BasicCard. Falls back to SMEARGLE_DATA. */
+  data?: Partial<ICardData>;
 }
 
 const defined = <T,>(v: T | undefined, key: string): Record<string, T> =>
@@ -74,6 +77,7 @@ export function HolographicCard({
   rainbowSaturation,
   tileSize,
   portrait,
+  data,
 }: IHolographicCardProps) {
 
   const tiltAttrs: Record<string, unknown> = {
@@ -105,7 +109,7 @@ export function HolographicCard({
         data-holo-tile-size={tileSize}
         style={foilStyle}
       >
-        <BasicCard portrait={portrait} />
+        <BasicCard data={data} portrait={portrait} />
         <div aria-hidden="true" className="holographic-card__shine" />
       </div>
       {/* @ts-ignore */}

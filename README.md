@@ -1,21 +1,16 @@
-# bun-react-tailwind-template
+# XD Level Up Example
 
-To install dependencies:
+Project created for a workshop session / presentation 
+for VML's XD Level Up (April 15, 2026).
 
-```bash
-bun install
-```
+Shows the capabilities to take any given Figma source and convert it to Storybook components, using MCP tools.
 
-To start a development server:
+## Sources
 
-```bash
-bun dev
-```
+### Figma
+https://www.figma.com/community/file/1223615632548850776
 
-To run for production:
+### Inspired by
+https://github.com/simeydotme/pokemon-cards-css
 
-```bash
-bun start
-```
-
-This project was created using `bun init` in bun v1.3.12. [Bun](https://bun.com) is a fast all-in-one JavaScript runtime.
+https://poke-holo.simey.me/
